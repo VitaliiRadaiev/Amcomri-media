@@ -1,0 +1,109 @@
+.shareholder-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -6px;
+
+    @media (max-width: $md3+px) {
+        display: block;
+    }
+
+    &__item {
+        flex: 0 1 50%;
+        border: 6px solid #fff;
+        transition: all .2s ease;
+        position: relative;
+        display: block;
+
+        @media (min-width: 992px) {
+            &:hover {
+                border: 6px solid $mainColor;
+
+                & .shareholder-info__img img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &_info {
+             background-color: #7d7d7d;
+            @media (min-width: 992px) {
+                &:hover {
+                    border: 6px solid #fff;
+                }
+            }
+            
+            & .shareholder-info__title {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+
+        & img {
+            transition: all 1.6s ease;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 11;
+            background-color: rgba(#353535, 0.4);
+        }
+    }
+
+    &__body {
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        @media (max-width: $md4+px) {
+            min-height: 250px;
+        }
+    }
+
+    &__title {
+        color: #fff;
+        text-align: center;
+    }
+
+    &__num {
+        color: #bebebe;
+        font-size: 80px;
+        margin-bottom: 10px;
+
+        @media (max-width: $md2+px) {
+            font-size: 54px;
+        }
+        @media (max-width: $md4+px) {
+            font-size: 44px;
+        }
+
+        & > sub {
+            font-size: 30px;
+
+            @media (max-width: $md4+px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    &__data {
+    color: #bebebe;
+    font-size: 20px;
+    line-height: 1.2em;
+    }
+}
