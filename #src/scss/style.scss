@@ -346,7 +346,9 @@ button.btn-default {
 
 	}
 
-	& ol {}
+	& ol {
+		list-style: none;
+	}
 
 	& figure {}
 

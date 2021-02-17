@@ -998,6 +998,10 @@ textarea {
   margin-top: 1.3em;
 }
 
+.text-content ol {
+  list-style: none;
+}
+
 .header {
   position: relative;
   z-index: 50;
