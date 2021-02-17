@@ -1,4 +1,14 @@
 .list-page {
+    &.list-page-2 {
+        & .list__head {
+            & .select-wrap {
+                margin-left: 0;
+                margin-right: auto;
+            }
+        }
+
+       
+    }
 
 }
 
@@ -17,6 +27,10 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 40px;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 10px;
+        }
         & .select-wrap {
             margin-left: auto;
         }
@@ -26,11 +40,49 @@
 
 .list-tabel-scroll {
     overflow: auto;
+    @media (max-width: $md3+px) {
+        margin-right: -15px;
+    }
 }
 
 .list-tabel {
     width: 100%;
     border-collapse: collapse;
+
+
+
+    &.list-tabel_v2 {
+
+        & th {
+            &:last-child {
+                text-align: left;
+                
+            }
+        }
+
+        & tr {
+            & td {
+
+                &:last-child {
+                    min-width: 227px;
+                    width: 438px;
+                    text-align: left;
+                    padding-left: 30px;
+
+                    @media (max-width: 1267px) {
+                        width: 227px;
+                    }
+                }
+            }   
+        }
+
+        & tr:nth-child(2n) {
+            & td {
+                background-color: #f3f3f3;
+            }
+        }
+    }
+
     & th {
         color: $mainColor;
         font-family: $secondFontFamily;
@@ -56,6 +108,11 @@
         line-height: normal;
         padding-top: 15px;
         padding-bottom: 15px;
+
+        @media (max-width: $md3+px) {
+            font-size: 20px;
+        }
+
         &:first-child {
             padding-left: 52px;
             padding-right: 20px;
@@ -79,6 +136,10 @@
             min-width: 227px;
             width: 227px;
             text-align: right;
+
+            @media (max-width: $md3+px) {
+                padding-right: 15px;
+            }
         }
     }
 
