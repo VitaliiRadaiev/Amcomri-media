@@ -1358,6 +1358,26 @@ textarea {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 -6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shareholder-info.shareholder-info_col-3 .shareholder-info__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 33.333%;
+          flex: 0 1 33.333%;
+}
+
+.shareholder-info__decor {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  width: 500px;
+  -webkit-transform: translate(26%, 33%) rotate(60deg);
+      -ms-transform: translate(26%, 33%) rotate(60deg);
+          transform: translate(26%, 33%) rotate(60deg);
 }
 
 .shareholder-info__item {
@@ -1806,6 +1826,12 @@ textarea {
 
   .sub-menu__link {
     font-size: 20px;
+  }
+
+  .shareholder-info.shareholder-info_col-3 .shareholder-info__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
   }
 
   .shareholder-info__num {

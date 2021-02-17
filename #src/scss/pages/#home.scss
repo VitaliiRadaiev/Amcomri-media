@@ -2,9 +2,30 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 -6px;
-
+    position: relative;
+    overflow: hidden;
     @media (max-width: $md3+px) {
         display: block;
+    }
+
+    &.shareholder-info_col-3 {
+        & .shareholder-info__item {
+            flex: 0 1 33.333%;
+
+            @media (max-width: $md2+px) {
+                flex: 0 1 50%;
+            }
+        }
+    }
+
+    &__decor {
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        bottom: 0;
+        max-width: 100%;
+        width: 500px;
+        transform: translate(26%, 33%) rotate(60deg);
     }
 
     &__item {
