@@ -46,6 +46,7 @@ $(document).ready(function () {
 	@@include('forms.js');
 	@@include('../common/burger/burger.js');
 	@@include('../common/header/header.js');
+	@@include('blocks/table.js');
 	
 });
 

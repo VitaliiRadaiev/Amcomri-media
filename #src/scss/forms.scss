@@ -31,45 +31,56 @@
 // //</BUTTONS>====================================================================================================
 
 //<SELECT (sel+tab)>====================================================================================================
+.select-wrap {
+	display: inline-block;
+}
 .select {
 	position: relative;
 	// .select__item
 	&__item {
 		position: relative;
 		//font-family: $mainFontFamily;
-		min-width: 294px;
+		min-width: 85px;
 	}
 	// .select__title
 	&__title {
 		color: $textColor;
 		background-color: #fff;
 		cursor: pointer;
+		transition: all .2s ease;
+
+		@media (min-width: 992px) {
+			&:hover {
+				color: $mainColor;
+			}
+		}
+
 		@media (max-width: $md2+px) {
 			font-size: 18px;
 		}
 	}
 	// .select__value
 	&__value {
-		display: flex;
-		font-size: 14px;
 		line-height: 170%;
 		padding: 0px 15px;
-		align-items: center;
-		justify-content: space-between;
-		flex-direction: row-reverse;
 		span {
-			//font-family: $mainFontFamily;
-			display: -webkit-box;
-			-webkit-line-clamp: 1;
-			-webkit-box-orient: vertical;
+			font-family: $mainFontFamily;
+			font-size: 19px;
+			line-height: normal;
+			text-transform: uppercase;
+
 		}
 		&:before {
-			content: "+";
-			display: inline-block;
-			transition: all 0.3s ease 0s;
-/*			width: 11px;
-			height: 7px;*/
-			//background: url("../img/icons/select.svg") center / 100% no-repeat;
+			position: absolute;
+			content: '';
+			top: 50%;
+			transform: translateY(-50%);
+			right: 0px;
+			width: 11px;
+			height: 8px;
+			background: url('../img/icons/down-chevron.svg') center no-repeat;
+			background-size: contain;
+			transition: all .2s ease;
 		}
 	}
 	&__input {
@@ -112,7 +123,7 @@
 		z-index: 5;
 		.select__value {
 			&:before {
-				transform: rotate(-180deg);
+				transform:scale(1, -1);
 			}
 		}
 		.select__options {
