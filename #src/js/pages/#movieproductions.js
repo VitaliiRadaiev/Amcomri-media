@@ -5,6 +5,9 @@
 			slidesPerView:1,
             effect: 'fade',
 			speed: 600,
+			lazy: {
+				loadPrevNext: true,
+			},
 			autoplay: {
 			  delay: 4000,
 			   disableOnInteraction: false,
