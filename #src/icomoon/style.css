@@ -37,10 +37,10 @@
 .icon-arrow-right:before {
   content: "\e900";
 }
-.icon-play_circle_filled:before {
+.icon-play3:before {
   content: "\e901";
 }
-.icon-pause_circle_filled:before {
+.icon-pause2:before {
   content: "\e902";
 }
 .icon-chevron-small-right:before {

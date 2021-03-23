@@ -1,12 +1,17 @@
+
+
 function cardVideoHandler() {
 	function togglePlayPause(video,btn) {
 		if(video.paused) {
 			video.play();
 			btn.firstElementChild.className = 'icon-pause2';
-
+			video.setAttribute('controls', 'true');
+			video.closest('.card-product').classList.add('_active');
 		} else {
 			video.pause();
 			btn.firstElementChild.className = 'icon-play3';
+			video.removeAttribute('controls');
+			video.closest('.card-product').classList.remove('_active');
 		}
 	}
 
@@ -37,7 +42,7 @@ function cardVideoHandler() {
 							clearTimeout(timerId);
 							timerId = setTimeout(() => {
 								btn.style.opacity = '0';
-							}, 2000);
+							}, 500);
 
 					} else {
 						btn.style.opacity = '1';

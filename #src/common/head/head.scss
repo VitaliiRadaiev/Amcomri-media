@@ -8,6 +8,7 @@
         position: relative;
         padding-top: 58px;
         padding-bottom: 42px;
+        margin-top: 0 !important;
 
         @media (max-width: $md4+px) {
             padding-top: 40px;

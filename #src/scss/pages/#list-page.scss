@@ -84,6 +84,8 @@
     }
 
     & th {
+        vertical-align: middle;
+        border: none;
         color: $mainColor;
         font-family: $secondFontFamily;
         font-size: 20px;
@@ -108,7 +110,8 @@
         line-height: normal;
         padding-top: 15px;
         padding-bottom: 15px;
-
+        vertical-align: middle;
+        border: none;
         @media (max-width: $md3+px) {
             font-size: 20px;
         }

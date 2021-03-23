@@ -33,7 +33,7 @@
 //<FANCYBOX>===============================================================================================
 
 // ==== PLAGINS ===========================================================================================
-//@import "plagins/swiper-bundle";
+@import "plagins/swiper-bundle";
 //@import "plagins/drift-basic";
 // ==== // PLAGINS ===========================================================================================
 
@@ -357,9 +357,8 @@ button.btn-default {
 
 
 // ==== BLOCKS =====================================================
-@import "../common/header/#header";
-@import "../common/footer/#footer";
 @import "../common/head/head";
+@import "../common/video/##video";
 // ==== BLOCKS =====================================================
 
 
@@ -385,5 +384,39 @@ button.btn-default {
 	@import "pages/#investor";
 	// ==== AND INVESTOR =====================================================
 	
+	// ==== MOVIEPRODUCTIONS=====================================================
+	@import "pages/#movieproductions";
+	// ==== AND MOVIEPRODUCTIONS =====================================================
+	
 // ==== AND PAGES =====================================================
 
+
+
+// == change old style =============
+.capabilities-box  {
+	& .vc_col-lg-1\/5, & .wpb_column  {
+		& .vc_column-inner {
+			padding: 40px !important;
+		}
+
+		@media (min-width: 1200px) {
+			width: 16.666%;
+		}
+		@media (min-width: 768px) {
+			width: 33.333%;
+		}
+
+		@media (max-width: 1440px) {
+			&  h2, &  h2 a, & h2 span {
+				font-size: 18px !important;
+			}
+		}
+
+		@media (max-width: 1199px) {
+			&  h2, &  h2 a, & h2 span {
+				font-size: 23px !important;
+			}
+		}
+	}
+}
+// == and change old style =============

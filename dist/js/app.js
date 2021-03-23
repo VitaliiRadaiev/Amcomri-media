@@ -28,17 +28,20 @@ $(document).ready(function () {
 
 
 			// ==== ADD PADDING-TOP ================================
-			// {
-			// 	let wrapper = document.querySelector('.wrapper');
-			// 	if (wrapper) {
-			// 		let header = document.querySelector('.header');
-			// 		if(header) {
-			// 			let headerHeight = header.clientHeight;
-			// 			wrapper.style.paddingTop = headerHeight + 'px';
-			// 		}
+			{
+				let wrapper = document.getElementById('main');
+
+				if (wrapper) {
+					let header = document.querySelector('.wgl-theme-header');
+					if(header) {
+						if(document.documentElement.clientWidth > 1028) {
+							let headerHeight = header.clientHeight;
+							document.body.style.paddingTop = (headerHeight - 40) + 'px';
+						}
+					}
 					
-			// 	}
-			// }
+				}
+			}
 			// ==== AND ADD PADDING-TOP ================================
 
 	//SlideToggle
@@ -111,7 +114,7 @@ let _slideToggle = (target, duration = 500) => {
 
 
 
-// === Конвертация svg картинки в svg код ==================================================================
+
 $('img.img-svg').each(function(){
   var $img = $(this);
   var imgClass = $img.attr('class');
@@ -128,88 +131,6 @@ $('img.img-svg').each(function(){
     $img.replaceWith($svg);
   }, 'xml');
 });
-// === // Конвертация svg картинки в svg код ==================================================================
-
-
-
-//Spollers
-function spollerInit() {
-	let spollers = document.querySelectorAll("._spoller");
-	if (spollers.length > 0) {
-		for (let index = 0; index < spollers.length; index++) {
-			const spoller = spollers[index];
-			spoller.addEventListener("click", function (e) {
-				e.preventDefault();
-				if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
-					return false;
-				}
-				if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
-					return false;
-				}
-				if (spoller.closest('._spollers').classList.contains('_one')) {
-					let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
-					for (let i = 0; i < curent_spollers.length; i++) {
-						let el = curent_spollers[i];
-						if (el != spoller) {
-							el.classList.remove('_active');
-							el.parentElement.classList.remove('_active');
-							_slideUp(el.nextElementSibling);
-						}
-					}
-				}
-				spoller.classList.toggle('_active');
-				if(spoller.classList.contains('_active')) {
-					spoller.parentElement.classList.add('_active');
-				} else {
-					spoller.parentElement.classList.remove('_active');
-				}
-				_slideToggle(spoller.nextElementSibling);
-			});
-		}
-	}
-}
-spollerInit()
-// === // Spollers ==================================================================
-
-
-// === lazy load ==================================================================
-document.addEventListener("DOMContentLoaded", function () {
-	var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-	if ("IntersectionObserver" in window) {
-		let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
-					let lazyImage = entry.target;
-					lazyImage.src = lazyImage.dataset.src;
-					//lazyImage.srcset = lazyImage.dataset.srcset;
-					lazyImage.classList.remove("lazy");
-					lazyImageObserver.unobserve(lazyImage);
-				}
-			});
-		});
-
-		lazyImages.forEach(function (lazyImage) {
-			lazyImageObserver.observe(lazyImage);
-		});
-	} else {
-		// Possibly fall back to event handlers here
-	}
-});
-// === // lazy load ==================================================================
-
-// === Плавный скрол на якорях ==================================================================
-if($('.anchor').length>0) {
-	$(".anchor").click(function() {
-	  var elementClick = $(this).attr("href")
-	  var destination = $(elementClick).offset().top;
-	  jQuery("html:not(:animated),body:not(:animated)").animate({
-		scrollTop: destination
-	  }, 600);
-	  return false;
-	});
-}
-// === Плавный скрол на якорях ==================================================================
 
 ;
 	// Dynamic Adapt v.1
@@ -855,42 +776,107 @@ if(priceSlider) {
 }
 
 // == // PRICE SLIDER =====================================================;
-	// === Burger Handler =====================================================================
-	function burgerBtnAnimation(e) {
-		$('.burger span:nth-child(1)').toggleClass('first');
-		$('.burger span:nth-child(2)').toggleClass('second');
-		$('.burger span:nth-child(3)').toggleClass('third');
-		$('.burger span:nth-child(4)').toggleClass('fourth');
-		let classNameElem = document.querySelector('.burger').dataset.activel;
-		document.querySelector(`.${classNameElem}`).classList.toggle('open');
-		_slideToggle(document.querySelector(`.${classNameElem}`));
-	}
-	$('.burger').click((e) => burgerBtnAnimation(e));
-// === Burger Handler =====================================================================	;
 	{
-    let dropDownBtn = document.querySelectorAll('.drop-down');
-    if(dropDownBtn.length) {
-        dropDownBtn.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                this.classList.toggle('_open');
-                _slideToggle(this.nextElementSibling, 300);
-            })
-        })
+    let promoHeader = document.querySelector('.promo-header');
+    if(promoHeader) {
+        var mySwiper = new Swiper(promoHeader.querySelector('.swiper-container'), {
+			slidesPerView:1,
+            effect: 'fade',
+			speed: 600,
+			autoplay: {
+			  delay: 4000,
+			   disableOnInteraction: false,
+			},
+			pagination: {
+			    el: promoHeader.querySelector('.swiper-pagination'),
+			     clickable: true,
+			     renderBullet: function(index, className) {
+			     	return '<div class="' + className + '"> <span class="progress"></span> </div>'
+			     }
+			  },
+			 on: {
 
-        document.addEventListener('click', (e) => {
-            if(!e.target.closest('.drop-down')) {
-                dropDownBtn.forEach(btn => {
-                    btn.classList.remove('_open');
-                    _slideUp(btn.nextElementSibling, 300);
-                })
-            }
-        })
+			 	slideChangeTransitionStart: function(current) {
+			 		let pagination = promoHeader.querySelector('.swiper-pagination');
+			 		let lenght = pagination.children.length;
+			 		
+			 		for(let i = 0; i < lenght; i++) {
+			 			if(i == current.activeIndex) break;
+			 			pagination.children[i].classList.add('isShow');
+			 		}
+
+			 		for(let i = current.activeIndex; i < lenght; i++) {
+			 			pagination.children[i].classList.remove('isShow');
+			 			pagination.children[i].firstElementChild.style.transform = 'scaleX(0)';
+			 		}
+			 	}
+			 }, 
+				// scrollbar: {
+				//   el: item.querySelector('.swiper-scrollbar'),
+				// },
+			})
     }
-};
-	
+}
 ;
 	
+
+function cardVideoHandler() {
+	function togglePlayPause(video,btn) {
+		if(video.paused) {
+			video.play();
+			btn.firstElementChild.className = 'icon-pause2';
+			video.setAttribute('controls', 'true');
+			video.closest('.card-product').classList.add('_active');
+		} else {
+			video.pause();
+			btn.firstElementChild.className = 'icon-play3';
+			video.removeAttribute('controls');
+			video.closest('.card-product').classList.remove('_active');
+		}
+	}
+
+	let videoBlock = document.querySelectorAll('.video-block');
+	if(videoBlock.length) {
+		let timerId;
+		videoBlock.forEach((item) => {
+
+			//let videoWrap = card.querySelector('.card-video__video-wrap');
+			let video = item.querySelector('.video-block__video');
+			let btn = item.querySelector('.video-block__play-pause');
+			//let time = item.querySelector('.card-video__duration-time');
+			//let btnLink = item.querySelector('.card-video__btn');
+
+			if(video) {
+				btn.addEventListener('click', (e) => {
+					e.preventDefault();
+					togglePlayPause(video,btn);
+				});
+				video.addEventListener('ended', () => {
+					video.pause();
+					btn.firstElementChild.className = 'icon-play3';
+				});
+				video.addEventListener('mousemove', (e) => { 
+					if(!video.paused) {
+						btn.style.opacity = '1';
+						
+							clearTimeout(timerId);
+							timerId = setTimeout(() => {
+								btn.style.opacity = '0';
+							}, 500);
+
+					} else {
+						btn.style.opacity = '1';
+					}
+
+				});
+
+			}
+		})
+	}
+
+}
+
+cardVideoHandler();;
 });
 
 //// html example --- <img class="lazy" data-src="https://images.unsplash.com/photo-1606851091851-e8c8c0fca5ba?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" src="img/photo/placeholder.jpg" alt="img">

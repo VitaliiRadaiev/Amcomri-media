@@ -28,26 +28,27 @@ $(document).ready(function () {
 
 
 			// ==== ADD PADDING-TOP ================================
-			// {
-			// 	let wrapper = document.querySelector('.wrapper');
-			// 	if (wrapper) {
-			// 		let header = document.querySelector('.header');
-			// 		if(header) {
-			// 			let headerHeight = header.clientHeight;
-			// 			wrapper.style.paddingTop = headerHeight + 'px';
-			// 		}
+			{
+				let wrapper = document.getElementById('main');
+
+				if (wrapper) {
+					let header = document.querySelector('.wgl-theme-header');
+					if(header) {
+						if(document.documentElement.clientWidth > 1028) {
+							let headerHeight = header.clientHeight;
+							document.body.style.paddingTop = (headerHeight - 40) + 'px';
+						}
+					}
 					
-			// 	}
-			// }
+				}
+			}
 			// ==== AND ADD PADDING-TOP ================================
 
 	@@include('_function.js');
 	@@include('files/dynamic_adapt.js');
 	@@include('forms.js');
-	@@include('../common/burger/burger.js');
-	@@include('../common/header/header.js');
-	@@include('blocks/table.js');
-	
+	@@include('pages/#movieproductions.js');
+	@@include('../common/video/##video.js');
 });
 
 //@@include('plagins/lazy-load.js');

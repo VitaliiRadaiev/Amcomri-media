@@ -1,0 +1,369 @@
+.movieproductions-page {
+    & .head {
+        margin-bottom: 120px;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 30px;
+        }
+
+        & .head__body {
+            max-width: 994px;
+
+            & > * {
+                padding-left: 69px;
+
+                @media (max-width: $md3+px) {
+                    padding-left: 0;
+                }
+            }
+
+            & p {
+                font-size: 17px;
+                font-family: Muli, sans-serif;
+                line-height: 1.2em;
+                margin-bottom: 1.6em;
+                color: #616161;
+
+                & > strong {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        & .head__title {
+            font-family: Muli, sans-serif;
+            font-weight: 900;
+            color: #000000;
+            font-size: 48px;
+            line-height: 1.238em;
+            max-width: none;
+            margin-bottom: 42px;
+            margin-top: 10px;
+
+            @media (max-width: $md3+px) {
+                font-size: 34px;
+                margin-bottom: 32px;
+            }
+        }
+    }
+}
+
+.promo-header {
+    margin-bottom: 60px;
+    &__item {
+        position: relative;
+        min-height: 768px;
+        padding: 70px 0 295px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @media (max-width: $md3+px) {
+            min-height: 568px;
+            padding-bottom: 130px;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        clip-path: polygon(0 0, 100% 0, 100% 84%, 0% 100%);
+
+        @media (max-width: $md3+px) {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+    }
+
+    &__body {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1630px;
+        padding: 0 15px;
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        text-align: right;
+    }
+
+    &__subtitle {
+        color: #ffffff;
+        font-family: Muli, sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 1.2em;
+
+        @media (max-width: $md3+px) {
+            font-size: 26px;
+        }
+    }
+
+    &__title {
+        font-family: Muli, sans-serif;
+        color: #ffffff;
+        font-size: 100px;
+        font-weight: 900;
+        line-height: 1.2em;
+
+        @media (max-width: $md3+px) {
+            font-size: 60px;
+        }
+    }
+
+    & .swiper-pagination {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1630px;
+        padding: 0 15px;
+        bottom: 252px;
+
+        @media (max-width: $md3+px) {
+            bottom: 100px;
+        }
+
+        & > .swiper-pagination-bullet {
+            position: relative;
+            height: 5px;
+            flex: 1 1 auto;
+            max-width: 29px;
+            z-index: 5;
+            opacity: 1;
+            background: transparent;
+            margin: 0px 9px !important;
+            background-color: rgba(#fff, 0.5);
+            border-radius: 0;
+
+            &.isShow {
+                & > .progress {
+                    transform: scaleX(1) !important;
+                }
+            }
+
+            & > .progress {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff;
+                z-index: 2;
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+
+            @keyframes dash {
+                from {
+                    transform: scaleX(0);
+                }
+                to {
+                    transform: scaleX(1);
+                }
+            }
+
+            &.swiper-pagination-bullet-active {
+                & > .progress {
+                    animation: dash 4.1s linear forwards;
+                }
+            }
+        }
+
+        & .swiper-pagination-progressbar {
+            background: rgba(255, 255, 255, 0.57);
+        }
+
+        & .swiper-pagination-progressbar-fill {
+            background: #fff;
+        }
+    }
+}
+
+.productions-block {
+    margin-bottom: 130px;
+
+    @media (max-width: $md3+px) {
+        margin-bottom: 60px;
+    }
+    
+
+    &__head {
+        display: flex;
+        margin-bottom: 35px;
+
+        @media (max-width: $md2+px) {
+            display: block;
+        }
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        max-width: 550px;
+        margin-right: 20px;
+        font-family: Muli, sans-serif;
+        font-weight: 900;
+        color: #000000;
+        font-size: 48px;
+        line-height: 1.238em;
+        margin-bottom: 22px;
+        margin-top: 10px;
+
+        transform: translateY(-26px);
+
+        @media (max-width: $md2+px) {
+            transform: translateY(0px);
+            max-width: none;
+        }
+
+        @media (max-width: $md3+px) {
+            font-size: 34px;
+            margin-bottom: 22px;
+        }
+    }
+
+    &__filter {
+        flex: 1 1 auto;
+    }
+
+    &__filter-label {
+        text-align: right;
+        color: #8e8e8e;
+        font-family: Muli, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1em;
+        margin-bottom: 19px;
+        padding-right: 13px;
+
+        @media (max-width: $md2+px) {
+            text-align: left;
+        }
+    }
+
+    &__filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        @media (max-width: $md2+px) {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        & > li {
+            margin-bottom: 10px;
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
+    }
+
+    &__filter-btn {
+        display: inline-flex;
+        min-height: 30px;
+        color: #8e8e8e;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+        white-space: nowrap;
+        padding: 0 13px;
+        align-items: center;
+
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: rgba(212, 169, 74, 1);
+                color: #fff;
+            }
+        }
+
+        &.active {
+            background-color: rgba(212, 169, 74, 1);
+            color: #fff;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -18px;
+
+        @media (max-width: $md2+px) {
+            margin: 0 -10px;
+        }
+
+        & > li {
+            padding: 0 18px;
+            flex: 0 1 50%;
+            margin-bottom: 60px;
+
+            @media (max-width: $md2+px) {
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+
+            @media (max-width: $md3+px) {
+                flex: 0 1 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.card-product {
+    position: relative;
+
+    &._active {
+        & .card-product__title {
+            opacity: 0;
+        }
+    }
+
+    & .video-block {
+        width: 100%;
+        height: 345px;
+
+        & .icon-play3 {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                content: "VIEW TRAILER";
+                top: 110%;
+                left: 50%;
+                color: #ffffff;
+                font-family: Muli, sans-serif;
+                font-size: 11px;
+                font-weight: 700;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__title {
+        position: absolute;
+        left: 44px;
+        bottom: 18px;
+        z-index: 2;
+        color: #ffffff;
+        font-family: Muli, sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 1.2em;
+        pointer-events: none;
+        transition: all .3s ease;
+        padding-right: 15px;
+
+        @media (max-width: $md2+px) {
+            left: 18px;
+            font-size: 26px;
+        }
+    }
+}
+

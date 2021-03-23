@@ -68,7 +68,7 @@ let _slideToggle = (target, duration = 500) => {
 
 
 
-// === Конвертация svg картинки в svg код ==================================================================
+
 $('img.img-svg').each(function(){
   var $img = $(this);
   var imgClass = $img.attr('class');
@@ -85,86 +85,4 @@ $('img.img-svg').each(function(){
     $img.replaceWith($svg);
   }, 'xml');
 });
-// === // Конвертация svg картинки в svg код ==================================================================
-
-
-
-//Spollers
-function spollerInit() {
-	let spollers = document.querySelectorAll("._spoller");
-	if (spollers.length > 0) {
-		for (let index = 0; index < spollers.length; index++) {
-			const spoller = spollers[index];
-			spoller.addEventListener("click", function (e) {
-				e.preventDefault();
-				if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
-					return false;
-				}
-				if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
-					return false;
-				}
-				if (spoller.closest('._spollers').classList.contains('_one')) {
-					let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
-					for (let i = 0; i < curent_spollers.length; i++) {
-						let el = curent_spollers[i];
-						if (el != spoller) {
-							el.classList.remove('_active');
-							el.parentElement.classList.remove('_active');
-							_slideUp(el.nextElementSibling);
-						}
-					}
-				}
-				spoller.classList.toggle('_active');
-				if(spoller.classList.contains('_active')) {
-					spoller.parentElement.classList.add('_active');
-				} else {
-					spoller.parentElement.classList.remove('_active');
-				}
-				_slideToggle(spoller.nextElementSibling);
-			});
-		}
-	}
-}
-spollerInit()
-// === // Spollers ==================================================================
-
-
-// === lazy load ==================================================================
-document.addEventListener("DOMContentLoaded", function () {
-	var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-	if ("IntersectionObserver" in window) {
-		let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
-					let lazyImage = entry.target;
-					lazyImage.src = lazyImage.dataset.src;
-					//lazyImage.srcset = lazyImage.dataset.srcset;
-					lazyImage.classList.remove("lazy");
-					lazyImageObserver.unobserve(lazyImage);
-				}
-			});
-		});
-
-		lazyImages.forEach(function (lazyImage) {
-			lazyImageObserver.observe(lazyImage);
-		});
-	} else {
-		// Possibly fall back to event handlers here
-	}
-});
-// === // lazy load ==================================================================
-
-// === Плавный скрол на якорях ==================================================================
-if($('.anchor').length>0) {
-	$(".anchor").click(function() {
-	  var elementClick = $(this).attr("href")
-	  var destination = $(elementClick).offset().top;
-	  jQuery("html:not(:animated),body:not(:animated)").animate({
-		scrollTop: destination
-	  }, 600);
-	  return false;
-	});
-}
-// === Плавный скрол на якорях ==================================================================
 
