@@ -52,14 +52,14 @@
     margin-bottom: 60px;
     &__item {
         position: relative;
-        min-height: 768px;
-        padding: 70px 0 295px;
+        min-height: 599px;
+        padding: 70px 0 279px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
 
         @media (max-width: $md3+px) {
-            min-height: 568px;
+            min-height: 500px;
             padding-bottom: 130px;
         }
     }
@@ -80,13 +80,17 @@
 
     &__body {
         margin: 0 auto;
-        width: 100%;
-        max-width: 1630px;
+        width: 80%;
+        max-width: 1656px;
         padding: 0 15px;
         position: relative;
         z-index: 2;
         color: #fff;
         text-align: right;
+
+        @media (max-width: $md3+px) {
+            width: 90%;
+        }
     }
 
     &__subtitle {
@@ -95,10 +99,19 @@
         font-size: 30px;
         font-weight: 300;
         line-height: 1.2em;
+        margin-bottom: -4px;
 
-        @media (max-width: $md3+px) {
-            font-size: 26px;
+
+        font-size: calc(15px + 12 * (100vw / 1656));
+
+		@media (max-width: $md3+px ) {
+			font-size: calc(15px + (12 + 12 * 0.7) * ((100vw - 320px) / 1656));
+		}
+
+        @media (min-width: 1920px) {
+            font-size: 30px !important;
         }
+
     }
 
     &__title {
@@ -108,24 +121,31 @@
         font-weight: 900;
         line-height: 1.2em;
 
-        @media (max-width: $md3+px) {
-            font-size: 60px;
+        font-size: calc(50px + 41 * (100vw / 1656));
+
+		@media (max-width: $md3+px ) {
+			font-size: calc(50px + (41 + 41 * 0.7) * ((100vw - 320px) / 1656));
+		}
+
+        @media (min-width: 1920px) {
+            font-size: 100px !important;
         }
     }
 
     & .swiper-pagination {
-        width: 100%;
+        width: 80%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         left: 50%;
         transform: translateX(-50%);
-        max-width: 1630px;
-        padding: 0 15px;
-        bottom: 252px;
+        max-width: 1656px;
+        padding: 0 10px;
+        bottom: 250px;
 
         @media (max-width: $md3+px) {
             bottom: 100px;
+            width: 90%;
         }
 
         & > .swiper-pagination-bullet {
@@ -184,8 +204,15 @@
     }
 }
 
+
+
+
 .productions-block {
-    margin-bottom: 130px;
+    margin-bottom: 122px;
+
+    & .container {
+        max-width: 1292px;
+    }
 
     @media (max-width: $md3+px) {
         margin-bottom: 60px;
@@ -194,7 +221,7 @@
 
     &__head {
         display: flex;
-        margin-bottom: 35px;
+        margin-bottom: 15px;
 
         @media (max-width: $md2+px) {
             display: block;
@@ -212,8 +239,8 @@
         line-height: 1.238em;
         margin-bottom: 22px;
         margin-top: 10px;
+        transform: translateY(-31px);
 
-        transform: translateY(-26px);
 
         @media (max-width: $md2+px) {
             transform: translateY(0px);
@@ -238,8 +265,9 @@
         font-weight: 700;
         text-transform: uppercase;
         line-height: 1em;
-        margin-bottom: 19px;
-        padding-right: 13px;
+        margin-bottom: 14px;
+        padding-right: 2px;
+        letter-spacing: 0.08em;
 
         @media (max-width: $md2+px) {
             text-align: left;
@@ -250,31 +278,33 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-
+        margin-right: -11px;
         @media (max-width: $md2+px) {
             justify-content: flex-start;
             flex-wrap: nowrap;
             overflow-x: auto;
+            margin-right: 0;
         }
 
         & > li {
             margin-bottom: 10px;
             &:not(:last-child) {
-                margin-right: 30px;
+                margin-right: 7px;
             }
         }
     }
 
     &__filter-btn {
         display: inline-flex;
-        min-height: 30px;
+        min-height: 34px;
         color: #8e8e8e;
         transition: all 0.3s ease;
         border-radius: 6px;
         white-space: nowrap;
         padding: 0 13px;
         align-items: center;
-
+        letter-spacing: 0.035em;
+        line-height: 1em;
         @media (min-width: 992px) {
             &:hover {
                 background-color: rgba(212, 169, 74, 1);
@@ -317,6 +347,7 @@
 
 .card-product {
     position: relative;
+    display: block;
 
     &._active {
         & .card-product__title {
@@ -344,6 +375,10 @@
                 white-space: nowrap;
             }
         }
+    }
+
+    & .video-block__video {
+        display: none;
     }
 
     &__title {
